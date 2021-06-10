@@ -1977,6 +1977,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string alert_description
+string ampm_description
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -2034,6 +2035,8 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string date_description
+string day_description
 string default_web_client_id
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
@@ -2046,6 +2049,8 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string header_description
 string hide_bottom_view_on_scroll_behavior
+string hour_description
+string hour_tag
 string icon_content_description
 string image_description
 string imagebutton_description
@@ -2053,6 +2058,9 @@ string link_description
 string menu_description
 string menubar_description
 string menuitem_description
+string minutes_description
+string minutes_tag
+string month_description
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_suffix
@@ -2100,6 +2108,14 @@ string rn_tab_description
 string scrollbar_description
 string search_description
 string search_menu_title
+string selected_ampm_description
+string selected_date_description
+string selected_day_description
+string selected_hour_description
+string selected_minutes_description
+string selected_month_description
+string selected_value_description
+string selected_year_description
 string spinbutton_description
 string state_busy_description
 string state_collapsed_description
@@ -2110,8 +2126,10 @@ string state_on_description
 string status_bar_notification_info_overflow
 string summary_description
 string tablist_description
+string time_tag
 string timer_description
 string toolbar_description
+string year_description
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

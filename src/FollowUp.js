@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BottomDrawer from 'react-native-bottom-drawer-view';
-import {Button, TextInput, Paragraph, Dialog, Portal} from 'react-native-paper';
+import {Button, TextInput, Paragraph, Dialog, Portal ,FAB} from 'react-native-paper';
+import { KeyboardAvoidingView   } from 'react-native';
 
 // Import all required component
 import {
@@ -16,6 +17,7 @@ import {
 } from 'react-native';
 import Contacts from 'react-native-contacts';
 import ListItemView from './component/ListItem'
+import { ScrollView } from 'react-native';
 const ContactScreen = function () {
   const initialValue = [
     {
@@ -26,6 +28,7 @@ const ContactScreen = function () {
     },
   ];
   const [con, setContacts] = useState(initialValue);
+  const [isVisible,setIsVisible] = useState(false);
   useEffect(() => {
     PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
       title: 'Contacts',
@@ -64,14 +67,15 @@ const ContactScreen = function () {
   }
   
   return (
-    <View style={style.container}>
+    
+    <KeyboardAvoidingView style={style.container}>
       {/**uncomment the below code if you dont want to use flatlist */}
       {/**<ListItemView
       data={con}
       key={{item => item.index}}
       display={{item.name}={item.index}}
     /> */}
-      <FlatList
+      {/* <FlatList
         data={con}
         keyExtractor={item => item.index}
         renderItem={({ item }) => {
@@ -90,8 +94,19 @@ const ContactScreen = function () {
             
           );
         }}
-      />
-      <BottomDrawer startUP ={false} containerHeight={300} offset={49}>
+
+      /> */}
+      <FAB small icon="plus" style={style.fab} onPress={()=> setIsVisible(!isVisible)} />
+      {/* <Portal>
+      <Dialog visible={isVisible} onDismiss={hideDialog}>
+        <Dialog.Content>
+          <Paragraph>This is simple dialog</Paragraph>
+        </Dialog.Content>
+      </Dialog>
+    </Portal> */}
+  {isVisible && <>
+      <BottomDrawer startUP ={false} containerHeight={500} offset={49}>
+        <ScrollView>
         <View>
           <Text style={{margin:10,marginLeft:20}}>Add User</Text>
           <TextInput
@@ -106,8 +121,11 @@ const ContactScreen = function () {
           <Button>Submit</Button>
           
           </View>
+          </ScrollView>
           </BottomDrawer>
-    </View>
+          </>
+}
+    </KeyboardAvoidingView>
     
     
   );
@@ -133,6 +151,12 @@ const style = StyleSheet.create({
     paddingHorizontal:25,
     flexDirection:'row',
     alignItems:'center',
+  },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
   },
   container: {
     flex: 1,
